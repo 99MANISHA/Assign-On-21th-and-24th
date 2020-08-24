@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MVCMovieCustWithAuth.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Movie List</h2>
+
+<div style="display:inline-block"><h2>Movie List</h2></div>
+
+<div style="float:right;display:inline-block;margin-top:10px">
+
+    @Html.ActionLink("New +", "New", "Movies", null, new { @class = "btn btn-success" })
+
+</div>
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+
+        <tr>
+            <th>Movie Id</th>
+            <th>Movie Name</th>
+            @*<th>Genre Type </th>*@
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+       <tr>
+
+            <td>@item.Id</td>
+
+            <td>@Html.ActionLink(item.Name, "Details", "Movies", new { id = item.Id }, null)</td>
+            @*<td>@item.Genre.GenreName</td>*@
+         <td>
+
+          @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+         </td>
+         <td>
+
+         @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+
+         </td>
+
+       </tr>}
+
+
+
+    </tbody>
+
+</table>

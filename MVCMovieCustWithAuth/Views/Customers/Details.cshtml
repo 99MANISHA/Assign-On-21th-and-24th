@@ -1,0 +1,12 @@
+﻿@model MVCMovieCustWithAuth.Models.Customer
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Name</h2>
+<p>MembershipType:@Model.MenberShipType.DiscountRate%</p>
+@Html.CheckBoxFor(c => c.IsSubscribedToNewsLetter)
+<div>
+    @Html.ActionLink("Back", "Index", "Customers", null, new { @class = "btn btn-primary" })
+</div>
+

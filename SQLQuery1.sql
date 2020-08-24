@@ -1,0 +1,1 @@
+﻿Truncate table Movies

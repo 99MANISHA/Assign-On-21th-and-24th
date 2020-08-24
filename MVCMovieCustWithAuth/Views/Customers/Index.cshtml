@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MVCMovieCustWithAuth.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Customer List</h2>
+@if (!Model.Any())
+{
+<p> </p> 
+}
+else
+{
+               <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>CustomerName</th>
+                            <th>DicountRate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var customer in Model)
+                        {
+                        <tr>
+                            <td>@Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id }, null)</td>
+                            <td>@customer.MenberShipType.DiscountRate%</td>
+                            <td>@Html.ActionLink("Edit", "Edit", new { id = customer.Id }, new { @class = "btn btn-success" })</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+}

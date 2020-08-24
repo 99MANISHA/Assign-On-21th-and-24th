@@ -1,0 +1,28 @@
+﻿@model MVCMovieCustWithAuth.View_Model.NewCustomerViewModel
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New Customer</h2>
+@using (Html.BeginForm("Save", "Customers"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.Name)
+        @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.MenbershipTypeId)
+        @Html.DropDownListFor(m => m.Customer.MenbershipTypeId, new SelectList
+           (Model.MenberShipTypes, "Id", "Name"), " ", new { @class = "form-control" }))
+    </div>
+
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(m => m.Customer.IsSubscribedToNewsLetter) SubscribedToNewsLetter
+        </label>
+    </div>
+    @Html.HiddenFor(m => m.Customer.Id);
+    <button type="submit" class="btn btn-primary">Save</button>
+    
+}

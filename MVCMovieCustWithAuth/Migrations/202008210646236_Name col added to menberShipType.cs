@@ -1,0 +1,18 @@
+namespace MVCMovieCustWithAuth.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class NamecoladdedtomenberShipType : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.MenberShipTypes", "Name", c => c.String());
+        }
+        
+        public override void Down()
+        {
+            DropColumn("dbo.MenberShipTypes", "Name");
+        }
+    }
+}
